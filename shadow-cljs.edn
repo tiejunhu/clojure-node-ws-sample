@@ -1,0 +1,18 @@
+;; shadow-cljs configuration
+{:source-paths ["src/dev" "src/main" "src/test"]
+
+ :dependencies [[com.taoensso/sente "1.16.2"]
+                [com.taoensso/timbre "5.1.2"]
+                [macchiato/core "0.2.22"]
+                [macchiato/auth "0.0.10"]
+                [macchiato/hiccups "0.4.1"]
+                [bidi "2.1.6"]]
+
+ :builds {:app {:output-dir "target/"
+                :output-to "target/server.js"
+                :target :node-script
+                :main server/main}
+          :client {:output-dir "target/resources/public"
+                   :target :browser
+                   :modules {:main {:entries [client]}}}}
+ }
