@@ -2,6 +2,8 @@
 
   (:require
    [cljs.core.async :as async :refer (<!)]
+
+   ;; hicup
    [hiccups.runtime]
 
    ;; sente

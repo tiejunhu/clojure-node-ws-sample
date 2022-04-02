@@ -4,3 +4,5 @@ target
 resources
 .clj-kondo
 .lsp
+.lein-failures
+yarn-error.log
