@@ -97,12 +97,12 @@
         "chsk"  {:get  ajax-get-or-ws-handshake
                  :post ajax-post
                  :ws   ajax-get-or-ws-handshake}
-        "login" {:post (wrap-macchiato-res login-handler)}}])
+        "login" {:post (wrap-macchiato-res login-handler)}}
+   ])
 
 (defn router [req res raise]
   (debugf "Request: %s" (select-keys req [:request-method :websocket? :uri :params :session]))
-  (if-let [{:keys [handler route-params]}
-           (bidi/match-route* (routes) (:uri req) req)]
+  (if-let [{:keys [handler route-params]} (bidi/match-route* (routes) (:uri req) req)]
     (handler (assoc req :route-params route-params) res raise)
     (res (not-found req))))
 
